@@ -1,0 +1,886 @@
+{
+  "basis": "Requisitos_Chatbot_Tuberculose_v0.2_revisado.docx",
+  "status": "Proposta de planejamento inferida dos critérios; dependências não foram declaradas formalmente pelo cliente. Validar no refinamento.",
+  "stages": [
+    {
+      "id": 1,
+      "title": "Atendimento documentado",
+      "value": "Conduzir anamnese e prescrição e produzir evolução revisada, com decisão clínica manual.",
+      "scope": "Fatia inicial de registro, sem recomendação clínica automática. Antecipar US-037a e US-042a; não marcar as histórias integrais como concluídas."
+    },
+    {
+      "id": 2,
+      "title": "Revisão clínica assistida",
+      "value": "Conferir esquema, dose, riscos e interações e produzir agenda e orientações aprovadas.",
+      "scope": "Ativar somente regras e pares de interações revisados. Exibir limites de cobertura; não declarar segurança global a partir de verificação parcial."
+    },
+    {
+      "id": 3,
+      "title": "Decisão e dispensação",
+      "value": "Consolidar PRMs, confirmar condutas, registrar dispensação e exportar os documentos completos.",
+      "scope": "Inclui resposta e adesão com dados disponíveis. Completa US-037 e US-042 para os tipos documentais do escopo."
+    },
+    {
+      "id": 4,
+      "title": "Continuidade do cuidado",
+      "value": "Acompanhar evolução, TDO, cobertura, retornos e desfecho.",
+      "scope": "TDO manual pode preceder aprovação da modalidade digital. Informação laboratorial continua opcional."
+    },
+    {
+      "id": 5,
+      "title": "Ampliação de escopo",
+      "value": "Incorporar regime pediátrico encurtado, PTS e consulta clínica com fontes.",
+      "scope": "US-015 é Must no escopo pediátrico: antecipar essa trilha se esse público entrar na primeira liberação. US-031 e US-044 são trilhas independentes."
+    }
+  ],
+  "items": [
+    {
+      "id": "US-001",
+      "number": 1,
+      "title": "Acesso profissional",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-047"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Usa a política de dados e as permissões definidas em US-047.",
+      "story": "Como farmacêutico autorizado, eu quero acessar o assistente com conta individual e perfil aprovado para conduzir atendimentos com acesso protegido.",
+      "level": 1
+    },
+    {
+      "id": "US-002",
+      "number": 2,
+      "title": "Início do atendimento",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-001",
+        "US-048"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Precisa identificar o profissional e registrar os eventos básicos do atendimento.",
+      "story": "Como farmacêutico, eu quero iniciar um atendimento informando se o cuidado é para TB ativa ou ILTB e o status do tratamento para que o roteiro aplique somente as etapas pertinentes.",
+      "level": 3
+    },
+    {
+      "id": "US-003",
+      "number": 3,
+      "title": "Checklist de documentos",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-002"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "O checklist pertence ao atendimento aberto.",
+      "story": "Como farmacêutico, eu quero registrar a presença do documento com foto, cartão do SUS e prescrição para verificar as condições documentais antes da dispensação.",
+      "level": 4
+    },
+    {
+      "id": "US-004",
+      "number": 4,
+      "title": "Correção de respostas",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-002",
+        "US-048"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Precisa do registro de respostas e da trilha de alterações; cada módulo futuro deve implementar recálculo e invalidação de resultados.",
+      "story": "Como farmacêutico, eu quero corrigir uma resposta anterior para que alertas, pendências, cálculos e documentos reflitam o dado clínico corrigido.",
+      "level": 4
+    },
+    {
+      "id": "US-005",
+      "number": 5,
+      "title": "Dados mínimos do paciente",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-002"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Vincula os dados mínimos e o identificador ao atendimento.",
+      "story": "Como farmacêutico, eu quero registrar os dados clínicos mínimos e vincular o atendimento por identificador interno para avaliar esquema e dose com menor exposição de dados pessoais.",
+      "level": 4
+    },
+    {
+      "id": "US-006",
+      "number": 6,
+      "title": "Diagnóstico e fase",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-005"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Vincula diagnóstico, tipo de cuidado e fase ao paciente/atendimento.",
+      "story": "Como farmacêutico, eu quero registrar diagnóstico, forma clínica, localização, sensibilidade e fase do tratamento para que o assistente diferencie esquemas básicos, especiais e preventivos.",
+      "level": 5
+    },
+    {
+      "id": "US-007",
+      "number": 7,
+      "title": "Condições especiais",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-005"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Vincula condições clínicas ao paciente.",
+      "story": "Como farmacêutico, eu quero registrar gravidez ou lactação, HIV, hepatopatia, nefropatia, diabetes, alergias, desnutrição, uso de álcool e outras condições relevantes para reconhecer situações especiais e riscos de segurança.",
+      "level": 5
+    },
+    {
+      "id": "US-008",
+      "number": 8,
+      "title": "Medicamentos concomitantes",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-005"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Vincula a lista concomitante ao paciente.",
+      "story": "Como farmacêutico, eu quero registrar todos os medicamentos, alimentos e produtos de saúde usados pelo paciente, com concentração e horário, para revisar aprazamento e interações.",
+      "level": 5
+    },
+    {
+      "id": "US-009",
+      "number": 9,
+      "title": "Barreiras de adesão",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-005"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Vincula barreiras e vulnerabilidades ao paciente.",
+      "story": "Como farmacêutico, eu quero registrar barreiras de adesão e vulnerabilidades clínicas, sociais e culturais para planejar intervenções adequadas à realidade do paciente.",
+      "level": 5
+    },
+    {
+      "id": "US-010",
+      "number": 10,
+      "title": "Exames opcionais",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-006"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Classifica o exame conforme o contexto do tratamento e aceita estados sem resultado.",
+      "story": "Como farmacêutico, eu quero registrar exames diagnósticos e de acompanhamento quando disponíveis para complementar a avaliação sem impedir o atendimento na ausência de resultados.",
+      "level": 6
+    },
+    {
+      "id": "US-011",
+      "number": 11,
+      "title": "HIV e notificação",
+      "stage": 2,
+      "moscow": "Should",
+      "required": [
+        "US-006"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-010"
+      ],
+      "reason": "Diferencia TB/ILTB e registra situação conhecida; resultado laboratorial é complemento opcional.",
+      "story": "Como farmacêutico, eu quero registrar a situação conhecida da testagem para HIV e da notificação no Sinan ou IL-TB para apoiar as ações de cuidado e vigilância sem exigir laudo ou resultado laboratorial.",
+      "level": 6
+    },
+    {
+      "id": "US-012",
+      "number": 12,
+      "title": "Revisão da prescrição",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-003",
+        "US-005"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Relaciona prescrição, identificação do atendimento e pendências documentais; ausência de documento não bloqueia a avaliação.",
+      "story": "Como farmacêutico, eu quero revisar os elementos obrigatórios e a regularidade da prescrição para identificar inconsistências antes da dispensação.",
+      "level": 5
+    },
+    {
+      "id": "US-013",
+      "number": 13,
+      "title": "Adequação do esquema",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-006",
+        "US-012",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-015"
+      ],
+      "reason": "Cruza diagnóstico/fase e prescrição com regras aprovadas; o perfil pediátrico encurtado é ampliado por US-015.",
+      "story": "Como farmacêutico, eu quero comparar o esquema prescrito com as recomendações para TB ativa ou ILTB para confirmar indicação, composição e fase do tratamento.",
+      "level": 6
+    },
+    {
+      "id": "US-014",
+      "number": 14,
+      "title": "Dose e apresentação",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-006",
+        "US-012",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Usa idade/peso já disponíveis por US-005 e os dados da prescrição; pode ser desenvolvido em paralelo a US-013.",
+      "story": "Como farmacêutico, eu quero validar dose e forma farmacêutica pelas faixas de idade e peso para reduzir erros de prescrição e dispensação.",
+      "level": 6
+    },
+    {
+      "id": "US-015",
+      "number": 15,
+      "title": "Regime pediátrico encurtado",
+      "stage": 5,
+      "moscow": "Must",
+      "required": [
+        "US-006",
+        "US-007",
+        "US-010",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Usa contexto, condições especiais e estados de disponibilidade dos exames; critérios clínicos aplicáveis devem ser aprovados para cada cenário.",
+      "story": "Como farmacêutico, eu quero avaliar a elegibilidade ao tratamento pediátrico encurtado para que o regime de quatro meses seja sugerido somente nos casos previstos.",
+      "level": 7
+    },
+    {
+      "id": "US-016",
+      "number": 16,
+      "title": "Formas especiais e encaminhamento",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-006",
+        "US-007",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-026",
+        "US-027"
+      ],
+      "reason": "Reconhece formas e riscos com dados clínicos e regra aprovada; sinais posteriores de falha enriquecem a detecção.",
+      "story": "Como farmacêutico, eu quero reconhecer formas meningoencefálica, osteoarticular, grave, resistente ou com falha terapêutica para encaminhar o caso ao nível de cuidado apropriado.",
+      "level": 6
+    },
+    {
+      "id": "US-017",
+      "number": 17,
+      "title": "Avaliação hepática e renal",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-007",
+        "US-010",
+        "US-012",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Usa condições, prescrição e interface de exames, inclusive o estado indisponível; não depende de resultado real.",
+      "story": "Como farmacêutico, eu quero avaliar função hepática e renal antes de confirmar a posologia para reconhecer necessidade de esquema especial, ajuste ou monitoramento.",
+      "level": 7
+    },
+    {
+      "id": "US-018",
+      "number": 18,
+      "title": "Acesso e duplicidade terapêutica",
+      "stage": 3,
+      "moscow": "Should",
+      "required": [
+        "US-008",
+        "US-012"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Compara prescrição, tratamentos concomitantes e disponibilidade informada.",
+      "story": "Como farmacêutico, eu quero registrar disponibilidade, acessibilidade e possível duplicidade terapêutica para prever barreiras práticas à execução segura do tratamento.",
+      "level": 6
+    },
+    {
+      "id": "US-019",
+      "number": 19,
+      "title": "Limites de atuação profissional",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-002",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Aplica a distinção TB/TPT com regra institucional aprovada.",
+      "story": "Como farmacêutico, eu quero que o assistente diferencie os limites de atuação em TB ativa e TPT para não sugerir alteração de prescrição fora da competência prevista.",
+      "level": 4
+    },
+    {
+      "id": "US-020",
+      "number": 20,
+      "title": "Verificação de interações",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-008",
+        "US-012",
+        "US-021"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Necessita dos dois lados da comparação e de uma base de interações aprovada.",
+      "story": "Como farmacêutico, eu quero cruzar o esquema antituberculoso com os medicamentos e alimentos registrados para identificar interações clinicamente relevantes.",
+      "level": 6
+    },
+    {
+      "id": "US-021",
+      "number": 21,
+      "title": "Aprovação das interações",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-045",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Publica conteúdo de interações com versão e precedência de fontes.",
+      "story": "Como farmacêutico responsável pelo conteúdo, eu quero aprovar e versionar as interações antes de ativá-las para que registros ainda em construção não gerem condutas clínicas automáticas.",
+      "level": 4
+    },
+    {
+      "id": "US-022",
+      "number": 22,
+      "title": "Destaque de interações relevantes",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-020"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Classifica e destaca as interações detectadas em US-020.",
+      "story": "Como farmacêutico, eu quero receber destaque para interações com antirretrovirais, anticonvulsivantes, contraceptivos e outros tratamentos contínuos para avaliar riscos de falha ou toxicidade.",
+      "level": 7
+    },
+    {
+      "id": "US-023",
+      "number": 23,
+      "title": "Reações adversas",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-007",
+        "US-012",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Relaciona sintomas e condições aos medicamentos e ao manejo aprovado.",
+      "story": "Como farmacêutico, eu quero registrar reações adversas e diferenciá-las entre menores e maiores para orientar manejo local ou encaminhamento urgente.",
+      "level": 6
+    },
+    {
+      "id": "US-024",
+      "number": 24,
+      "title": "Toxicidade hepática e renal",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-017",
+        "US-023"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Combina parâmetros/limitações da avaliação hepatorrenal com sintomas e reações; preserva alertas sem exames.",
+      "story": "Como farmacêutico, eu quero que sinais de hepatotoxicidade e comprometimento renal sejam avaliados com os limiares do protocolo para reconhecer situações que exigem interrupção ou ajuste.",
+      "level": 8
+    },
+    {
+      "id": "US-025",
+      "number": 25,
+      "title": "Alergias e fatores de risco",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-007",
+        "US-008",
+        "US-012",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Cruza condições e tratamentos para individualizar os riscos.",
+      "story": "Como farmacêutico, eu quero revisar alergias, intolerâncias e fatores de risco para eventos adversos para individualizar a avaliação de segurança.",
+      "level": 6
+    },
+    {
+      "id": "US-026",
+      "number": 26,
+      "title": "Avaliação da resposta",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-006",
+        "US-010",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-029"
+      ],
+      "reason": "Usa contexto e evidências disponíveis, inclusive ausência de exames; histórico longitudinal pode ser integrado depois.",
+      "story": "Como farmacêutico, eu quero avaliar evolução clínica e regularidade do tratamento, complementadas por exames disponíveis, para reconhecer resposta observada e necessidade de investigação.",
+      "level": 7
+    },
+    {
+      "id": "US-027",
+      "number": 27,
+      "title": "Adesão e interrupções",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-006",
+        "US-012",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-009",
+        "US-028"
+      ],
+      "reason": "Aplica critérios de adesão/interrupção ao esquema; barreiras e doses observadas enriquecem a análise.",
+      "story": "Como farmacêutico, eu quero avaliar adesão, doses tomadas e interrupções para identificar risco de falha, resistência ou abandono e orientar a retomada adequada.",
+      "level": 6
+    },
+    {
+      "id": "US-028",
+      "number": 28,
+      "title": "Registro de TDO",
+      "stage": 4,
+      "moscow": "Should",
+      "required": [
+        "US-005",
+        "US-006"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-027"
+      ],
+      "reason": "Relaciona tomadas observadas ao tratamento; exames não são predecessores. Modalidade digital depende de aprovação própria.",
+      "story": "Como farmacêutico, eu quero registrar tomadas do tratamento diretamente observado, inclusive em modalidade digital pactuada, para acompanhar doses com segurança e confidencialidade, sem depender de exames laboratoriais.",
+      "level": 6
+    },
+    {
+      "id": "US-029",
+      "number": 29,
+      "title": "Acompanhamento longitudinal",
+      "stage": 4,
+      "moscow": "Must",
+      "required": [
+        "US-010",
+        "US-023",
+        "US-026",
+        "US-027"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-028"
+      ],
+      "reason": "Compara dados seriados de sintomas, adesão e resposta, aceitando ausência de exames. Periodicidade mensal deve ser validada, pois foi retirada indevidamente na revisão anterior.",
+      "story": "Como farmacêutico, eu quero acompanhar peso, sintomas, adesão e efeitos adversos, com exames quando disponíveis, para atualizar o plano de cuidado ao longo do tratamento.",
+      "level": 8
+    },
+    {
+      "id": "US-030",
+      "number": 30,
+      "title": "Programação dos retornos",
+      "stage": 4,
+      "moscow": "Should",
+      "required": [
+        "US-006",
+        "US-035"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Combina fase/duração do esquema com a cobertura calculada da dispensação.",
+      "story": "Como farmacêutico, eu quero programar os atendimentos recomendados e o retorno de dispensação para garantir continuidade do cuidado nas fases intensiva, de manutenção e de encerramento.",
+      "level": 13
+    },
+    {
+      "id": "US-031",
+      "number": 31,
+      "title": "Projeto Terapêutico Singular",
+      "stage": 5,
+      "moscow": "Could",
+      "required": [
+        "US-009"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-029",
+        "US-036"
+      ],
+      "reason": "Estrutura metas e responsabilidades a partir das necessidades identificadas; histórico e comunicações podem ser associados depois.",
+      "story": "Como farmacêutico, eu quero registrar metas e responsabilidades de um Projeto Terapêutico Singular para coordenar casos com vulnerabilidades ou necessidades complexas.",
+      "level": 6
+    },
+    {
+      "id": "US-032",
+      "number": 32,
+      "title": "Resumo dos PRMs",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-013",
+        "US-014",
+        "US-016",
+        "US-017",
+        "US-019",
+        "US-020",
+        "US-022",
+        "US-023",
+        "US-024",
+        "US-025",
+        "US-026",
+        "US-027"
+      ],
+      "conditional": [
+        "US-015"
+      ],
+      "optional": [
+        "US-018",
+        "US-029"
+      ],
+      "reason": "Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.",
+      "story": "Como farmacêutico, eu quero receber um resumo dos problemas relacionados aos medicamentos organizado por indicação, efetividade, segurança e adesão para revisar o caso de forma consistente.",
+      "level": 9
+    },
+    {
+      "id": "US-033",
+      "number": 33,
+      "title": "Revisão das condutas",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-019",
+        "US-032"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Associa e confirma condutas aos PRMs sem ultrapassar os limites de atuação.",
+      "story": "Como farmacêutico, eu quero revisar e editar uma conduta sugerida para cada PRM antes de registrá-la para diferenciar recomendação do sistema e decisão profissional.",
+      "level": 10
+    },
+    {
+      "id": "US-034",
+      "number": 34,
+      "title": "Decisão de dispensação",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-033"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Registra decisão e justificativa após revisão das avaliações e condutas.",
+      "story": "Como farmacêutico, eu quero registrar a decisão de dispensar, dispensar com encaminhamento ou não dispensar, com justificativa, para que o resultado represente a avaliação do caso.",
+      "level": 11
+    },
+    {
+      "id": "US-035",
+      "number": 35,
+      "title": "Quantidade e cobertura",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-012",
+        "US-034"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Calcula cobertura a partir da posologia e da decisão de dispensar.",
+      "story": "Como farmacêutico, eu quero registrar medicamento e quantidade dispensada para calcular a cobertura e definir o retorno sem ultrapassar o tratamento prescrito.",
+      "level": 12
+    },
+    {
+      "id": "US-036",
+      "number": 36,
+      "title": "Comunicações e encaminhamentos",
+      "stage": 3,
+      "moscow": "Should",
+      "required": [
+        "US-033"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Relaciona comunicação e resolução a PRM/conduta. Não exige carta gerada para registrar contato manual.",
+      "story": "Como farmacêutico, eu quero registrar encaminhamentos e comunicações interprofissionais para acompanhar a resolução de divergências e riscos identificados.",
+      "level": 11
+    },
+    {
+      "id": "US-037",
+      "number": 37,
+      "title": "Evolução para prontuário",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-034",
+        "US-035"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-029",
+        "US-036",
+        "US-043"
+      ],
+      "reason": "A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1.",
+      "story": "Como farmacêutico, eu quero gerar uma evolução para prontuário com dados, avaliação, PRMs, condutas e desfecho para documentar o atendimento sem duplicações ou contradições.",
+      "level": 13
+    },
+    {
+      "id": "US-038",
+      "number": 38,
+      "title": "Carta ao profissional",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-033"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-036"
+      ],
+      "reason": "Gera carta a partir do achado/conduta confirmada; pode ser desenvolvida em paralelo ao registro de comunicações.",
+      "story": "Como farmacêutico, eu quero gerar uma carta ao profissional assistente quando houver divergência, interação, risco ou necessidade de ajuste para comunicar o problema e a evidência de forma objetiva.",
+      "level": 11
+    },
+    {
+      "id": "US-039",
+      "number": 39,
+      "title": "Orientações personalizadas",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-009",
+        "US-023",
+        "US-027",
+        "US-033"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-030"
+      ],
+      "reason": "Usa esquema, riscos e barreiras já disponíveis e a decisão de conduta; data de retorno pode ser informada manualmente até US-030.",
+      "story": "Como farmacêutico, eu quero gerar orientações personalizadas ao paciente para explicar uso correto, alimentação, esquecimento, efeitos esperados, sinais de alerta, adesão e retorno em linguagem clara.",
+      "level": 11
+    },
+    {
+      "id": "US-040",
+      "number": 40,
+      "title": "Agenda de medicamentos",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-008",
+        "US-012",
+        "US-020"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Usa posologia, concomitantes e interações para apresentar horários e separações pertinentes.",
+      "story": "Como farmacêutico, eu quero gerar uma agenda de medicamentos para que o paciente visualize horários, quantidades e condições de administração do esquema e dos demais medicamentos.",
+      "level": 7
+    },
+    {
+      "id": "US-041",
+      "number": 41,
+      "title": "Transmissão e contatos",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-006",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Seleciona conteúdo aprovado conforme tipo de TB e situação do tratamento.",
+      "story": "Como farmacêutico, eu quero gerar orientações sobre transmissão, investigação de contatos, autocuidado e redução de estigma para apoiar o cuidado e a saúde pública.",
+      "level": 6
+    },
+    {
+      "id": "US-042",
+      "number": 42,
+      "title": "Aprovação e exportação",
+      "stage": 3,
+      "moscow": "Must",
+      "required": [
+        "US-037",
+        "US-038",
+        "US-039",
+        "US-040",
+        "US-041"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1.",
+      "story": "Como farmacêutico, eu quero revisar, editar e aprovar todos os documentos antes de exportar e encerrar o atendimento para manter responsabilidade profissional sobre o conteúdo final.",
+      "level": 14
+    },
+    {
+      "id": "US-043",
+      "number": 43,
+      "title": "Desfecho do tratamento",
+      "stage": 4,
+      "moscow": "Must",
+      "required": [
+        "US-026",
+        "US-027",
+        "US-029",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-028",
+        "US-042"
+      ],
+      "reason": "Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento.",
+      "story": "Como farmacêutico, eu quero registrar conclusão, interrupção, falência ou alta e receber orientações de encerramento para documentar corretamente o desfecho e a vigilância pós-tratamento.",
+      "level": 9
+    },
+    {
+      "id": "US-044",
+      "number": 44,
+      "title": "Consulta clínica com fontes",
+      "stage": 5,
+      "moscow": "Should",
+      "required": [
+        "US-045",
+        "US-046"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Consulta apenas fontes governadas, com incerteza explícita e separação das regras decisórias.",
+      "story": "Como farmacêutico, eu quero consultar dúvidas clínicas no assistente e receber respostas com fonte para esclarecer o atendimento sem transformar a resposta consultiva em decisão automática.",
+      "level": 4
+    },
+    {
+      "id": "US-045",
+      "number": 45,
+      "title": "Versões de regras e fontes",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-001"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Publicação e revisão precisam de perfil autorizado; registrar fonte de modelos documentais já na entrega 1.",
+      "story": "Como responsável clínico, eu quero versionar regras, tabelas e fontes e definir vigência para saber qual conteúdo sustentou cada atendimento.",
+      "level": 2
+    },
+    {
+      "id": "US-046",
+      "number": 46,
+      "title": "Precedência de fontes",
+      "stage": 2,
+      "moscow": "Must",
+      "required": [
+        "US-045"
+      ],
+      "conditional": [],
+      "optional": [],
+      "reason": "Resolve conflitos entre fontes versionadas antes de habilitar as regras clínicas afetadas.",
+      "story": "Como farmacêutico, eu quero que conflitos entre fontes sejam explicitados e resolvidos por uma hierarquia aprovada para não aplicar simultaneamente recomendações incompatíveis.",
+      "level": 3
+    },
+    {
+      "id": "US-047",
+      "number": 47,
+      "title": "Privacidade e proteção de dados",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [],
+      "conditional": [],
+      "optional": [],
+      "reason": "Capacidade transversal: decisões institucionais e controles mínimos desde o primeiro fluxo; ampliar por finalidade e integração.",
+      "story": "Como paciente e farmacêutico, eu quero que a coleta e o uso de dados pessoais e clínicos tenham finalidade definida, acesso restrito e proteção durante seu ciclo de vida para preservar a confidencialidade.",
+      "level": 0
+    },
+    {
+      "id": "US-048",
+      "number": 48,
+      "title": "Auditoria do atendimento",
+      "stage": 1,
+      "moscow": "Must",
+      "required": [
+        "US-001"
+      ],
+      "conditional": [],
+      "optional": [
+        "US-045"
+      ],
+      "reason": "Infraestrutura de eventos começa com autenticação; instrumentação clínica e versões são ampliadas em cada entrega.",
+      "story": "Como auditor clínico, eu quero rastrear respostas, regras acionadas, fontes, recomendações, alterações e decisão final para reconstruir como o atendimento foi conduzido.",
+      "level": 2
+    },
+    {
+      "id": "US-049",
+      "number": 49,
+      "title": "Acessibilidade e uso móvel",
+      "stage": 1,
+      "moscow": "Should",
+      "required": [],
+      "conditional": [],
+      "optional": [],
+      "reason": "Critério transversal da definição de pronto desde a primeira tela; validar novamente a cada incremento.",
+      "story": "Como farmacêutico, eu quero usar o assistente em computador ou dispositivo móvel com navegação clara e acessível para conduzir o atendimento sem perder informações.",
+      "level": 0
+    }
+  ],
+  "gates": [
+    {
+      "id": "G-DADOS",
+      "name": "Política de dados aprovada",
+      "scope": "Bloqueia uso com dados reais; desenvolvimento e demonstração com dados fictícios podem continuar."
+    },
+    {
+      "id": "G-CLINICA",
+      "name": "Escopo e conteúdo clínico aprovados",
+      "scope": "Bloqueia ativação de cada regra clínica não revisada; não exige laboratório nem matriz inteira para desenvolver."
+    },
+    {
+      "id": "G-TDO",
+      "name": "Modalidade digital aprovada",
+      "scope": "Somente captura/modalidade digital da US-028; manter alternativa sem gravação."
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+flowchart TB
+  subgraph E1["Entrega 1 — Atendimento documentado"]
+    U001["US-001<br/>Acesso profissional"]
+    U002["US-002<br/>Início do atendimento"]
+    U003["US-003<br/>Checklist de documentos"]
+    U004["US-004<br/>Correção de respostas"]
+    U005["US-005<br/>Dados mínimos do paciente"]
+    U006["US-006<br/>Diagnóstico e fase"]
+    U007["US-007<br/>Condições especiais"]
+    U008["US-008<br/>Medicamentos concomitantes"]
+    U009["US-009<br/>Barreiras de adesão"]
+    U012["US-012<br/>Revisão da prescrição"]
+    U047["US-047<br/>Privacidade e proteção de dados"]
+    U048["US-048<br/>Auditoria do atendimento"]
+    U049["US-049<br/>Acessibilidade e uso móvel"]
+  end
+  subgraph E2["Entrega 2 — Revisão clínica assistida"]
+    U010["US-010<br/>Exames opcionais"]
+    U011["US-011<br/>HIV e notificação"]
+    U013["US-013<br/>Adequação do esquema"]
+    U014["US-014<br/>Dose e apresentação"]
+    U016["US-016<br/>Formas especiais e encaminhamento"]
+    U017["US-017<br/>Avaliação hepática e renal"]
+    U019["US-019<br/>Limites de atuação profissional"]
+    U020["US-020<br/>Verificação de interações"]
+    U021["US-021<br/>Aprovação das interações"]
+    U022["US-022<br/>Destaque de interações relevantes"]
+    U023["US-023<br/>Reações adversas"]
+    U024["US-024<br/>Toxicidade hepática e renal"]
+    U025["US-025<br/>Alergias e fatores de risco"]
+    U040["US-040<br/>Agenda de medicamentos"]
+    U041["US-041<br/>Transmissão e contatos"]
+    U045["US-045<br/>Versões de regras e fontes"]
+    U046["US-046<br/>Precedência de fontes"]
+  end
+  subgraph E3["Entrega 3 — Decisão e dispensação"]
+    U018["US-018<br/>Acesso e duplicidade terapêutica"]
+    U026["US-026<br/>Avaliação da resposta"]
+    U027["US-027<br/>Adesão e interrupções"]
+    U032["US-032<br/>Resumo dos PRMs"]
+    U033["US-033<br/>Revisão das condutas"]
+    U034["US-034<br/>Decisão de dispensação"]
+    U035["US-035<br/>Quantidade e cobertura"]
+    U036["US-036<br/>Comunicações e encaminhamentos"]
+    U037["US-037<br/>Evolução para prontuário"]
+    U038["US-038<br/>Carta ao profissional"]
+    U039["US-039<br/>Orientações personalizadas"]
+    U042["US-042<br/>Aprovação e exportação"]
+  end
+  subgraph E4["Entrega 4 — Continuidade do cuidado"]
+    U028["US-028<br/>Registro de TDO"]
+    U029["US-029<br/>Acompanhamento longitudinal"]
+    U030["US-030<br/>Programação dos retornos"]
+    U043["US-043<br/>Desfecho do tratamento"]
+  end
+  subgraph E5["Entrega 5 — Ampliação de escopo"]
+    U015["US-015<br/>Regime pediátrico encurtado"]
+    U031["US-031<br/>Projeto Terapêutico Singular"]
+    U044["US-044<br/>Consulta clínica com fontes"]
+  end
+  U047 --> U001
+  U048 --> U002
+  U002 --> U003
+  U002 --> U004
+  U002 --> U005
+  U005 --> U006
+  U005 --> U007
+  U005 --> U008
+  U005 --> U009
+  U006 --> U010
+  U006 --> U011
+  U003 --> U012
+  U005 --> U012
+  U006 --> U013
+  U012 --> U013
+  U046 --> U013
+  U006 --> U014
+  U012 --> U014
+  U046 --> U014
+  U007 --> U015
+  U010 --> U015
+  U046 --> U015
+  U006 --> U016
+  U007 --> U016
+  U046 --> U016
+  U007 --> U017
+  U010 --> U017
+  U012 --> U017
+  U046 --> U017
+  U008 --> U018
+  U012 --> U018
+  U002 --> U019
+  U046 --> U019
+  U008 --> U020
+  U012 --> U020
+  U021 --> U020
+  U046 --> U021
+  U020 --> U022
+  U007 --> U023
+  U012 --> U023
+  U046 --> U023
+  U017 --> U024
+  U023 --> U024
+  U007 --> U025
+  U008 --> U025
+  U012 --> U025
+  U046 --> U025
+  U010 --> U026
+  U046 --> U026
+  U006 --> U027
+  U012 --> U027
+  U046 --> U027
+  U006 --> U028
+  U023 --> U029
+  U026 --> U029
+  U027 --> U029
+  U035 --> U030
+  U009 --> U031
+  U013 --> U032
+  U014 --> U032
+  U016 --> U032
+  U019 --> U032
+  U022 --> U032
+  U024 --> U032
+  U025 --> U032
+  U026 --> U032
+  U027 --> U032
+  U032 --> U033
+  U033 --> U034
+  U034 --> U035
+  U033 --> U036
+  U035 --> U037
+  U033 --> U038
+  U009 --> U039
+  U033 --> U039
+  U020 --> U040
+  U006 --> U041
+  U046 --> U041
+  U037 --> U042
+  U038 --> U042
+  U039 --> U042
+  U040 --> U042
+  U041 --> U042
+  U029 --> U043
+  U046 --> U044
+  U001 --> U045
+  U045 --> U046
+  U001 --> U048
+  U015 -. "Se perfil pediátrico habilitado" .-> U032

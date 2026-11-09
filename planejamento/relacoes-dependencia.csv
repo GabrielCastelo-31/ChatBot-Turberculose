@@ -1,0 +1,133 @@
+﻿Predecessora;Sucessora;Tipo;Efeito no planejamento
+US-047;US-001;Necessária;Usa a política de dados e as permissões definidas em US-047.
+US-001;US-002;Necessária;Precisa identificar o profissional e registrar os eventos básicos do atendimento.
+US-048;US-002;Necessária;Precisa identificar o profissional e registrar os eventos básicos do atendimento.
+US-002;US-003;Necessária;O checklist pertence ao atendimento aberto.
+US-002;US-004;Necessária;"Precisa do registro de respostas e da trilha de alterações; cada módulo futuro deve implementar recálculo e invalidação de resultados."
+US-048;US-004;Necessária;"Precisa do registro de respostas e da trilha de alterações; cada módulo futuro deve implementar recálculo e invalidação de resultados."
+US-002;US-005;Necessária;Vincula os dados mínimos e o identificador ao atendimento.
+US-005;US-006;Necessária;Vincula diagnóstico, tipo de cuidado e fase ao paciente/atendimento.
+US-005;US-007;Necessária;Vincula condições clínicas ao paciente.
+US-005;US-008;Necessária;Vincula a lista concomitante ao paciente.
+US-005;US-009;Necessária;Vincula barreiras e vulnerabilidades ao paciente.
+US-006;US-010;Necessária;Classifica o exame conforme o contexto do tratamento e aceita estados sem resultado.
+US-006;US-011;Necessária;"Diferencia TB/ILTB e registra situação conhecida; resultado laboratorial é complemento opcional."
+US-010;US-011;Complementar;"Diferencia TB/ILTB e registra situação conhecida; resultado laboratorial é complemento opcional."
+US-003;US-012;Necessária;"Relaciona prescrição, identificação do atendimento e pendências documentais; ausência de documento não bloqueia a avaliação."
+US-005;US-012;Necessária;"Relaciona prescrição, identificação do atendimento e pendências documentais; ausência de documento não bloqueia a avaliação."
+US-006;US-013;Necessária;"Cruza diagnóstico/fase e prescrição com regras aprovadas; o perfil pediátrico encurtado é ampliado por US-015."
+US-012;US-013;Necessária;"Cruza diagnóstico/fase e prescrição com regras aprovadas; o perfil pediátrico encurtado é ampliado por US-015."
+US-046;US-013;Necessária;"Cruza diagnóstico/fase e prescrição com regras aprovadas; o perfil pediátrico encurtado é ampliado por US-015."
+US-015;US-013;Complementar;"Cruza diagnóstico/fase e prescrição com regras aprovadas; o perfil pediátrico encurtado é ampliado por US-015."
+US-006;US-014;Necessária;"Usa idade/peso já disponíveis por US-005 e os dados da prescrição; pode ser desenvolvido em paralelo a US-013."
+US-012;US-014;Necessária;"Usa idade/peso já disponíveis por US-005 e os dados da prescrição; pode ser desenvolvido em paralelo a US-013."
+US-046;US-014;Necessária;"Usa idade/peso já disponíveis por US-005 e os dados da prescrição; pode ser desenvolvido em paralelo a US-013."
+US-006;US-015;Necessária;"Usa contexto, condições especiais e estados de disponibilidade dos exames; critérios clínicos aplicáveis devem ser aprovados para cada cenário."
+US-007;US-015;Necessária;"Usa contexto, condições especiais e estados de disponibilidade dos exames; critérios clínicos aplicáveis devem ser aprovados para cada cenário."
+US-010;US-015;Necessária;"Usa contexto, condições especiais e estados de disponibilidade dos exames; critérios clínicos aplicáveis devem ser aprovados para cada cenário."
+US-046;US-015;Necessária;"Usa contexto, condições especiais e estados de disponibilidade dos exames; critérios clínicos aplicáveis devem ser aprovados para cada cenário."
+US-006;US-016;Necessária;"Reconhece formas e riscos com dados clínicos e regra aprovada; sinais posteriores de falha enriquecem a detecção."
+US-007;US-016;Necessária;"Reconhece formas e riscos com dados clínicos e regra aprovada; sinais posteriores de falha enriquecem a detecção."
+US-046;US-016;Necessária;"Reconhece formas e riscos com dados clínicos e regra aprovada; sinais posteriores de falha enriquecem a detecção."
+US-026;US-016;Complementar;"Reconhece formas e riscos com dados clínicos e regra aprovada; sinais posteriores de falha enriquecem a detecção."
+US-027;US-016;Complementar;"Reconhece formas e riscos com dados clínicos e regra aprovada; sinais posteriores de falha enriquecem a detecção."
+US-007;US-017;Necessária;"Usa condições, prescrição e interface de exames, inclusive o estado indisponível; não depende de resultado real."
+US-010;US-017;Necessária;"Usa condições, prescrição e interface de exames, inclusive o estado indisponível; não depende de resultado real."
+US-012;US-017;Necessária;"Usa condições, prescrição e interface de exames, inclusive o estado indisponível; não depende de resultado real."
+US-046;US-017;Necessária;"Usa condições, prescrição e interface de exames, inclusive o estado indisponível; não depende de resultado real."
+US-008;US-018;Necessária;Compara prescrição, tratamentos concomitantes e disponibilidade informada.
+US-012;US-018;Necessária;Compara prescrição, tratamentos concomitantes e disponibilidade informada.
+US-002;US-019;Necessária;Aplica a distinção TB/TPT com regra institucional aprovada.
+US-046;US-019;Necessária;Aplica a distinção TB/TPT com regra institucional aprovada.
+US-008;US-020;Necessária;Necessita dos dois lados da comparação e de uma base de interações aprovada.
+US-012;US-020;Necessária;Necessita dos dois lados da comparação e de uma base de interações aprovada.
+US-021;US-020;Necessária;Necessita dos dois lados da comparação e de uma base de interações aprovada.
+US-045;US-021;Necessária;Publica conteúdo de interações com versão e precedência de fontes.
+US-046;US-021;Necessária;Publica conteúdo de interações com versão e precedência de fontes.
+US-020;US-022;Necessária;Classifica e destaca as interações detectadas em US-020.
+US-007;US-023;Necessária;Relaciona sintomas e condições aos medicamentos e ao manejo aprovado.
+US-012;US-023;Necessária;Relaciona sintomas e condições aos medicamentos e ao manejo aprovado.
+US-046;US-023;Necessária;Relaciona sintomas e condições aos medicamentos e ao manejo aprovado.
+US-017;US-024;Necessária;"Combina parâmetros/limitações da avaliação hepatorrenal com sintomas e reações; preserva alertas sem exames."
+US-023;US-024;Necessária;"Combina parâmetros/limitações da avaliação hepatorrenal com sintomas e reações; preserva alertas sem exames."
+US-007;US-025;Necessária;Cruza condições e tratamentos para individualizar os riscos.
+US-008;US-025;Necessária;Cruza condições e tratamentos para individualizar os riscos.
+US-012;US-025;Necessária;Cruza condições e tratamentos para individualizar os riscos.
+US-046;US-025;Necessária;Cruza condições e tratamentos para individualizar os riscos.
+US-006;US-026;Necessária;"Usa contexto e evidências disponíveis, inclusive ausência de exames; histórico longitudinal pode ser integrado depois."
+US-010;US-026;Necessária;"Usa contexto e evidências disponíveis, inclusive ausência de exames; histórico longitudinal pode ser integrado depois."
+US-046;US-026;Necessária;"Usa contexto e evidências disponíveis, inclusive ausência de exames; histórico longitudinal pode ser integrado depois."
+US-029;US-026;Complementar;"Usa contexto e evidências disponíveis, inclusive ausência de exames; histórico longitudinal pode ser integrado depois."
+US-006;US-027;Necessária;"Aplica critérios de adesão/interrupção ao esquema; barreiras e doses observadas enriquecem a análise."
+US-012;US-027;Necessária;"Aplica critérios de adesão/interrupção ao esquema; barreiras e doses observadas enriquecem a análise."
+US-046;US-027;Necessária;"Aplica critérios de adesão/interrupção ao esquema; barreiras e doses observadas enriquecem a análise."
+US-009;US-027;Complementar;"Aplica critérios de adesão/interrupção ao esquema; barreiras e doses observadas enriquecem a análise."
+US-028;US-027;Complementar;"Aplica critérios de adesão/interrupção ao esquema; barreiras e doses observadas enriquecem a análise."
+US-005;US-028;Necessária;"Relaciona tomadas observadas ao tratamento; exames não são predecessores. Modalidade digital depende de aprovação própria."
+US-006;US-028;Necessária;"Relaciona tomadas observadas ao tratamento; exames não são predecessores. Modalidade digital depende de aprovação própria."
+US-027;US-028;Complementar;"Relaciona tomadas observadas ao tratamento; exames não são predecessores. Modalidade digital depende de aprovação própria."
+US-010;US-029;Necessária;Compara dados seriados de sintomas, adesão e resposta, aceitando ausência de exames. Periodicidade mensal deve ser validada, pois foi retirada indevidamente na revisão anterior.
+US-023;US-029;Necessária;Compara dados seriados de sintomas, adesão e resposta, aceitando ausência de exames. Periodicidade mensal deve ser validada, pois foi retirada indevidamente na revisão anterior.
+US-026;US-029;Necessária;Compara dados seriados de sintomas, adesão e resposta, aceitando ausência de exames. Periodicidade mensal deve ser validada, pois foi retirada indevidamente na revisão anterior.
+US-027;US-029;Necessária;Compara dados seriados de sintomas, adesão e resposta, aceitando ausência de exames. Periodicidade mensal deve ser validada, pois foi retirada indevidamente na revisão anterior.
+US-028;US-029;Complementar;Compara dados seriados de sintomas, adesão e resposta, aceitando ausência de exames. Periodicidade mensal deve ser validada, pois foi retirada indevidamente na revisão anterior.
+US-006;US-030;Necessária;Combina fase/duração do esquema com a cobertura calculada da dispensação.
+US-035;US-030;Necessária;Combina fase/duração do esquema com a cobertura calculada da dispensação.
+US-009;US-031;Necessária;"Estrutura metas e responsabilidades a partir das necessidades identificadas; histórico e comunicações podem ser associados depois."
+US-029;US-031;Complementar;"Estrutura metas e responsabilidades a partir das necessidades identificadas; histórico e comunicações podem ser associados depois."
+US-036;US-031;Complementar;"Estrutura metas e responsabilidades a partir das necessidades identificadas; histórico e comunicações podem ser associados depois."
+US-013;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-014;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-016;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-017;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-019;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-020;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-022;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-023;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-024;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-025;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-026;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-027;US-032;Necessária;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-015;US-032;Condicional;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-018;US-032;Complementar;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-029;US-032;Complementar;Consolida as análises de indicação, efetividade, segurança e adesão habilitadas. A integração de US-015 é obrigatória se o escopo incluir recomendação pediátrica encurtada.
+US-019;US-033;Necessária;Associa e confirma condutas aos PRMs sem ultrapassar os limites de atuação.
+US-032;US-033;Necessária;Associa e confirma condutas aos PRMs sem ultrapassar os limites de atuação.
+US-033;US-034;Necessária;Registra decisão e justificativa após revisão das avaliações e condutas.
+US-012;US-035;Necessária;Calcula cobertura a partir da posologia e da decisão de dispensar.
+US-034;US-035;Necessária;Calcula cobertura a partir da posologia e da decisão de dispensar.
+US-033;US-036;Necessária;Relaciona comunicação e resolução a PRM/conduta. Não exige carta gerada para registrar contato manual.
+US-034;US-037;Necessária;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
+US-035;US-037;Necessária;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
+US-029;US-037;Complementar;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
+US-036;US-037;Complementar;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
+US-043;US-037;Complementar;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
+US-033;US-038;Necessária;"Gera carta a partir do achado/conduta confirmada; pode ser desenvolvida em paralelo ao registro de comunicações."
+US-036;US-038;Complementar;"Gera carta a partir do achado/conduta confirmada; pode ser desenvolvida em paralelo ao registro de comunicações."
+US-009;US-039;Necessária;"Usa esquema, riscos e barreiras já disponíveis e a decisão de conduta; data de retorno pode ser informada manualmente até US-030."
+US-023;US-039;Necessária;"Usa esquema, riscos e barreiras já disponíveis e a decisão de conduta; data de retorno pode ser informada manualmente até US-030."
+US-027;US-039;Necessária;"Usa esquema, riscos e barreiras já disponíveis e a decisão de conduta; data de retorno pode ser informada manualmente até US-030."
+US-033;US-039;Necessária;"Usa esquema, riscos e barreiras já disponíveis e a decisão de conduta; data de retorno pode ser informada manualmente até US-030."
+US-030;US-039;Complementar;"Usa esquema, riscos e barreiras já disponíveis e a decisão de conduta; data de retorno pode ser informada manualmente até US-030."
+US-008;US-040;Necessária;Usa posologia, concomitantes e interações para apresentar horários e separações pertinentes.
+US-012;US-040;Necessária;Usa posologia, concomitantes e interações para apresentar horários e separações pertinentes.
+US-020;US-040;Necessária;Usa posologia, concomitantes e interações para apresentar horários e separações pertinentes.
+US-006;US-041;Necessária;Seleciona conteúdo aprovado conforme tipo de TB e situação do tratamento.
+US-046;US-041;Necessária;Seleciona conteúdo aprovado conforme tipo de TB e situação do tratamento.
+US-037;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
+US-038;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
+US-039;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
+US-040;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
+US-041;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
+US-026;US-043;Necessária;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
+US-027;US-043;Necessária;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
+US-029;US-043;Necessária;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
+US-046;US-043;Necessária;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
+US-028;US-043;Complementar;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
+US-042;US-043;Complementar;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
+US-045;US-044;Necessária;Consulta apenas fontes governadas, com incerteza explícita e separação das regras decisórias.
+US-046;US-044;Necessária;Consulta apenas fontes governadas, com incerteza explícita e separação das regras decisórias.
+US-001;US-045;Necessária;"Publicação e revisão precisam de perfil autorizado; registrar fonte de modelos documentais já na entrega 1."
+US-045;US-046;Necessária;Resolve conflitos entre fontes versionadas antes de habilitar as regras clínicas afetadas.
+US-001;US-048;Necessária;"Infraestrutura de eventos começa com autenticação; instrumentação clínica e versões são ampliadas em cada entrega."
+US-045;US-048;Complementar;"Infraestrutura de eventos começa com autenticação; instrumentação clínica e versões são ampliadas em cada entrega."
