@@ -97,11 +97,11 @@ US-033;US-034;Necessária;Registra decisão e justificativa após revisão das a
 US-012;US-035;Necessária;Calcula cobertura a partir da posologia e da decisão de dispensar.
 US-034;US-035;Necessária;Calcula cobertura a partir da posologia e da decisão de dispensar.
 US-033;US-036;Necessária;Relaciona comunicação e resolução a PRM/conduta. Não exige carta gerada para registrar contato manual.
-US-034;US-037;Necessária;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
-US-035;US-037;Necessária;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
-US-029;US-037;Complementar;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
-US-036;US-037;Complementar;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
-US-043;US-037;Complementar;"A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1."
+US-034;US-037;Necessária;"A versão integral incorpora avaliação, decisão e quantidade quando houve dispensação; introdução prevista na semana 9."
+US-035;US-037;Necessária;"A versão integral incorpora avaliação, decisão e quantidade quando houve dispensação; introdução prevista na semana 9."
+US-029;US-037;Complementar;"A versão integral incorpora avaliação, decisão e quantidade quando houve dispensação; introdução prevista na semana 9."
+US-036;US-037;Complementar;"A versão integral incorpora avaliação, decisão e quantidade quando houve dispensação; introdução prevista na semana 9."
+US-043;US-037;Complementar;"A versão integral incorpora avaliação, decisão e quantidade quando houve dispensação; introdução prevista na semana 9."
 US-033;US-038;Necessária;"Gera carta a partir do achado/conduta confirmada; pode ser desenvolvida em paralelo ao registro de comunicações."
 US-036;US-038;Complementar;"Gera carta a partir do achado/conduta confirmada; pode ser desenvolvida em paralelo ao registro de comunicações."
 US-009;US-039;Necessária;"Usa esquema, riscos e barreiras já disponíveis e a decisão de conduta; data de retorno pode ser informada manualmente até US-030."
@@ -114,11 +114,11 @@ US-012;US-040;Necessária;Usa posologia, concomitantes e interações para apres
 US-020;US-040;Necessária;Usa posologia, concomitantes e interações para apresentar horários e separações pertinentes.
 US-006;US-041;Necessária;Seleciona conteúdo aprovado conforme tipo de TB e situação do tratamento.
 US-046;US-041;Necessária;Seleciona conteúdo aprovado conforme tipo de TB e situação do tratamento.
-US-037;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
-US-038;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
-US-039;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
-US-040;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
-US-041;US-042;Necessária;"A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1."
+US-037;US-042;Necessária;"Revisa os documentos disponíveis; introdução prevista na semana 10."
+US-038;US-042;Necessária;"Revisa os documentos disponíveis; introdução prevista na semana 10."
+US-039;US-042;Necessária;"Revisa os documentos disponíveis; introdução prevista na semana 10."
+US-040;US-042;Necessária;"Revisa os documentos disponíveis; introdução prevista na semana 10."
+US-041;US-042;Necessária;"Revisa os documentos disponíveis; introdução prevista na semana 10."
 US-026;US-043;Necessária;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
 US-027;US-043;Necessária;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
 US-029;US-043;Necessária;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
@@ -127,7 +127,7 @@ US-028;US-043;Complementar;"Usa evolução, doses e regras de desfecho; ausênci
 US-042;US-043;Complementar;"Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento."
 US-045;US-044;Necessária;Consulta apenas fontes governadas, com incerteza explícita e separação das regras decisórias.
 US-046;US-044;Necessária;Consulta apenas fontes governadas, com incerteza explícita e separação das regras decisórias.
-US-001;US-045;Necessária;"Publicação e revisão precisam de perfil autorizado; registrar fonte de modelos documentais já na entrega 1."
+US-001;US-045;Necessária;"Publicação e revisão precisam de perfil autorizado; registrar fonte de modelos documentais desde a primeira fatia."
 US-045;US-046;Necessária;Resolve conflitos entre fontes versionadas antes de habilitar as regras clínicas afetadas.
 US-001;US-048;Necessária;"Infraestrutura de eventos começa com autenticação; instrumentação clínica e versões são ampliadas em cada entrega."
 US-045;US-048;Complementar;"Infraestrutura de eventos começa com autenticação; instrumentação clínica e versões são ampliadas em cada entrega."

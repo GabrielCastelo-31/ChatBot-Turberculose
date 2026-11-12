@@ -1,14 +1,15 @@
 digraph Entregas {
- graph [rankdir=TB, bgcolor="white", pad="0.3", ranksep=0.5, nodesep=0.4, fontname="DejaVu Sans", label="Chatbot de tuberculose\nEntregas orientadas a valor — proposta para o cliente", labelloc=t, fontsize=20];
+ graph [rankdir=TB, bgcolor="white", pad="0.3", ranksep=0.45, fontname="DejaVu Sans", label="Chatbot de tuberculose\nEntregas orientadas a valor", labelloc=t, fontsize=20];
  node [shape=box,style="rounded,filled",fillcolor="#eff5f7",color="#c4d2d9",fontcolor="#173c4b",fontname="DejaVu Sans",fontsize=14,margin="0.22,0.18"];
  edge [color="#718691",arrowsize=.8];
- E1 [label="1  Atendimento documentado\nCadastro mínimo, anamnese e prescrição\nEvolução manual revisada e exportada"];
- E2 [label="2  Revisão clínica assistida\nEsquema, dose, riscos e interações\nAgenda e orientações com fontes"];
- E3 [label="3  Decisão e dispensação\nResumo de PRMs e condutas confirmadas\nQuantidade, documentos e comunicação"];
- E4 [label="4  Continuidade do cuidado\nTDO, histórico, retornos e desfecho"];
- E5 [label="5  Ampliação de escopo\nPediatria, PTS e consulta com fontes\nTrilhas independentes conforme prioridade"];
- E1 -> E2 -> E3 -> E4;
- E2 -> E5 [style=dashed,label="Pode antecipar\nquando houver escopo e entradas",fontname="DejaVu Sans",fontsize=11];
- note [shape=plaintext,style="",label="Privacidade, auditoria e acessibilidade desde a primeira entrega\nCada entrega pode ocupar várias sprints\nPrimeira fatia documental não conclui US-037 e US-042 integrais\nO público pediátrico na liberação inicial exige antecipar US-015",fontsize=11,fontcolor="#374b57"];
- E4 -> note [style=invis]; E5 -> note [style=invis];
+ A [label="20/11/2026  Fluxo básico\nAtendimento, dados mínimos e prescrição\nDemonstração com dados fictícios"];
+ B [label="04/12/2026  RAG com fontes\nConsulta documental com referências"];
+ C [label="11/12/2026  Validações automatizadas\nEsquema, dose e interações aprovadas"];
+ D [label="08/01/2027  Condutas e dispensação\nResumo de PRMs e decisão profissional"];
+ E [label="22/01/2027  Documentos e orientações\nRevisão e exportação"];
+ F [label="29/01/2027  Consolidação transversal\nPrivacidade, auditoria e acessibilidade"];
+ G [label="19/02/2027  Entrega prevista\nEstabilização, regressão e homologação"];
+ A -> B -> C -> D -> E -> F -> G;
+ note [shape=plaintext,style="",label="Marcos previstos, não comprovação de aceite integral.\nControles mínimos transversais desde o início.\nDatas sem desconto de feriados/recesso.",fontsize=11,fontcolor="#374b57"];
+ G -> note [style=invis];
 }

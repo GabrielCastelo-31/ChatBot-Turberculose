@@ -1,8 +1,10 @@
+> Ordem vigente por valor: consulte `cronograma-semanal.md`. As semanas indicam introdução de capacidades; as setas do grafo representam dependências para aceite integral.
+
 # Dependências e ordem de implementação do chatbot de tuberculose
 
 Proposta de planejamento inferida dos critérios; dependências não foram declaradas formalmente pelo cliente. Validar no refinamento.
 
-Base: versão 0.2 dos requisitos. Os 49 IDs e suas prioridades MoSCoW foram mantidos. A etapa é uma proposta qualitativa por valor, risco e desbloqueio de outras capacidades; não é uma estimativa de esforço, sprint ou data.
+Base: versão 0.2 dos requisitos. Os 49 IDs e suas prioridades MoSCoW foram mantidos. A semana indica a introdução proposta no cronograma, não o aceite integral nem uma estimativa de esforço.
 
 ## Como interpretar o grafo
 
@@ -13,111 +15,67 @@ Base: versão 0.2 dos requisitos. Os 49 IDs e suas prioridades MoSCoW foram mant
 - O grafo visual reduz relações transitivas para evitar excesso de setas. A matriz CSV preserva todas as predecessoras explicitadas. Complementos estão na matriz e no explorador, fora do grafo principal para não criar ciclos falsos.
 - Implementar a interface de exames (US-010) não exige obter resultados reais nem construir integração laboratorial. Nenhuma etapa depende de exame efetivamente disponível.
 
-## Entregas por valor
+## Ordem atual e primeira fatia
 
-### Entrega 1 — Atendimento documentado
+A ordem por valor, os marcos e as pendências estão em `cronograma-semanal.md`. A primeira demonstração reúne abertura de atendimento, dados mínimos, checklist e prescrição, com dados fictícios e decisão manual. RAG é introduzido na semana 3, seguido das validações de esquema, dose e interações. A geração e a aprovação completas de documentos seguem as semanas 9 e 10; não há fatias US-037a/US-042a adicionais contabilizadas antecipadamente.
 
-Conduzir anamnese e prescrição e produzir evolução revisada, com decisão clínica manual.
-
-Fatia inicial de registro, sem recomendação clínica automática. Antecipar US-037a e US-042a; não marcar as histórias integrais como concluídas.
-
-Histórias com capacidade inicial nesta entrega: US-047, US-049, US-001, US-048, US-002, US-003, US-004, US-005, US-006, US-007, US-008, US-009, US-012.
-
-### Entrega 2 — Revisão clínica assistida
-
-Conferir esquema, dose, riscos e interações e produzir agenda e orientações aprovadas.
-
-Ativar somente regras e pares de interações revisados. Exibir limites de cobertura; não declarar segurança global a partir de verificação parcial.
-
-Histórias com capacidade inicial nesta entrega: US-045, US-046, US-019, US-021, US-010, US-011, US-013, US-014, US-016, US-020, US-023, US-025, US-041, US-017, US-022, US-040, US-024.
-
-### Entrega 3 — Decisão e dispensação
-
-Consolidar PRMs, confirmar condutas, registrar dispensação e exportar os documentos completos.
-
-Inclui resposta e adesão com dados disponíveis. Completa US-037 e US-042 para os tipos documentais do escopo.
-
-Histórias com capacidade inicial nesta entrega: US-018, US-027, US-026, US-032, US-033, US-034, US-036, US-038, US-039, US-035, US-037, US-042.
-
-### Entrega 4 — Continuidade do cuidado
-
-Acompanhar evolução, TDO, cobertura, retornos e desfecho.
-
-TDO manual pode preceder aprovação da modalidade digital. Informação laboratorial continua opcional.
-
-Histórias com capacidade inicial nesta entrega: US-028, US-029, US-043, US-030.
-
-### Entrega 5 — Ampliação de escopo
-
-Incorporar regime pediátrico encurtado, PTS e consulta clínica com fontes.
-
-US-015 é Must no escopo pediátrico: antecipar essa trilha se esse público entrar na primeira liberação. US-031 e US-044 são trilhas independentes.
-
-Histórias com capacidade inicial nesta entrega: US-044, US-031, US-015.
-
-## Primeira fatia utilizável
-
-Priorizar um atendimento de ponta a ponta: autenticar → abrir atendimento → registrar dados mínimos/anamnese/prescrição → corrigir dados → gerar evolução manual → revisar/exportar. Essa fatia reduz retrabalho de documentação e permite testar linguagem, campos e usabilidade com farmacêuticos. O ganho é uma hipótese a validar no piloto, não um resultado medido.
-
-Antecipar US-037a (evolução com informação registrada e avaliação manual) e US-042a (revisão e exportação dessa evolução). Criar critérios próprios para essas fatias no backlog. Elas não satisfazem a totalidade de US-037/US-042: não declarar os pais concluídos nem mostrar PRMs automáticos, cobertura, segurança ou efetividade ainda não implementados. Completar os pais na entrega 3 conforme suas predecessoras. US-004 começa corrigindo respostas; seu aceite de recálculo cresce a cada módulo. US-048 começa com eventos de autenticação/edição e cresce com as decisões clínicas.
-
-Os grupos não são fases fechadas: o time seleciona pequenas fatias verticais por Meta da Sprint e pode combinar itens de diferentes grupos. Validação clínica e dados reais seguem os marcos de liberação, independentemente da demo técnica.
+Privacidade, auditoria e acessibilidade têm controles mínimos desde a primeira fatia e consolidação posterior. A introdução antecipada de uma HU não remove as dependências necessárias ao seu aceite integral. Para as pendências por HU e os critérios de liberação, consulte o cronograma.
 
 ## Matriz completa dos requisitos
 
 IDs nas colunas de predecessoras são US-xxx. Nível topológico é somente a distância máxima em dependências necessárias, sem considerar durações; não é caminho crítico.
 
-| ID | Requisito | MoSCoW | Entrega | Necessárias | Condicionais | Complementares |
+| ID | Requisito | MoSCoW | Semana de introdução | Necessárias | Condicionais | Complementares |
 |---|---|---|---|---|---|---|
-| US-047 | Privacidade e proteção de dados | Must | 1 | — | — | — |
-| US-049 | Acessibilidade e uso móvel | Should | 1 | — | — | — |
-| US-001 | Acesso profissional | Must | 1 | US-047 | — | — |
-| US-048 | Auditoria do atendimento | Must | 1 | US-001 | — | US-045 |
+| US-047 | Privacidade e proteção de dados | Must | 11 | — | — | — |
+| US-049 | Acessibilidade e uso móvel | Should | 11 | — | — | — |
+| US-001 | Acesso profissional | Must | 2 | US-047 | — | — |
+| US-048 | Auditoria do atendimento | Must | 11 | US-001 | — | US-045 |
 | US-002 | Início do atendimento | Must | 1 | US-001, US-048 | — | — |
 | US-003 | Checklist de documentos | Must | 1 | US-002 | — | — |
-| US-004 | Correção de respostas | Must | 1 | US-002, US-048 | — | — |
+| US-004 | Correção de respostas | Must | 2 | US-002, US-048 | — | — |
 | US-005 | Dados mínimos do paciente | Must | 1 | US-002 | — | — |
-| US-006 | Diagnóstico e fase | Must | 1 | US-005 | — | — |
-| US-007 | Condições especiais | Must | 1 | US-005 | — | — |
-| US-008 | Medicamentos concomitantes | Must | 1 | US-005 | — | — |
-| US-009 | Barreiras de adesão | Must | 1 | US-005 | — | — |
+| US-006 | Diagnóstico e fase | Must | 2 | US-005 | — | — |
+| US-007 | Condições especiais | Must | 5 | US-005 | — | — |
+| US-008 | Medicamentos concomitantes | Must | 2 | US-005 | — | — |
+| US-009 | Barreiras de adesão | Must | 5 | US-005 | — | — |
 | US-012 | Revisão da prescrição | Must | 1 | US-003, US-005 | — | — |
-| US-045 | Versões de regras e fontes | Must | 2 | US-001 | — | — |
-| US-046 | Precedência de fontes | Must | 2 | US-045 | — | — |
-| US-019 | Limites de atuação profissional | Must | 2 | US-002, US-046 | — | — |
-| US-021 | Aprovação das interações | Must | 2 | US-045, US-046 | — | — |
-| US-010 | Exames opcionais | Must | 2 | US-006 | — | — |
-| US-011 | HIV e notificação | Should | 2 | US-006 | — | US-010 |
-| US-013 | Adequação do esquema | Must | 2 | US-006, US-012, US-046 | — | US-015 |
-| US-014 | Dose e apresentação | Must | 2 | US-006, US-012, US-046 | — | — |
-| US-016 | Formas especiais e encaminhamento | Must | 2 | US-006, US-007, US-046 | — | US-026, US-027 |
-| US-020 | Verificação de interações | Must | 2 | US-008, US-012, US-021 | — | — |
-| US-023 | Reações adversas | Must | 2 | US-007, US-012, US-046 | — | — |
-| US-025 | Alergias e fatores de risco | Must | 2 | US-007, US-008, US-012, US-046 | — | — |
-| US-041 | Transmissão e contatos | Must | 2 | US-006, US-046 | — | — |
-| US-017 | Avaliação hepática e renal | Must | 2 | US-007, US-010, US-012, US-046 | — | — |
-| US-022 | Destaque de interações relevantes | Must | 2 | US-020 | — | — |
-| US-040 | Agenda de medicamentos | Must | 2 | US-008, US-012, US-020 | — | — |
-| US-024 | Toxicidade hepática e renal | Must | 2 | US-017, US-023 | — | — |
-| US-018 | Acesso e duplicidade terapêutica | Should | 3 | US-008, US-012 | — | — |
-| US-027 | Adesão e interrupções | Must | 3 | US-006, US-012, US-046 | — | US-009, US-028 |
-| US-026 | Avaliação da resposta | Must | 3 | US-006, US-010, US-046 | — | US-029 |
-| US-032 | Resumo dos PRMs | Must | 3 | US-013, US-014, US-016, US-017, US-019, US-020, US-022, US-023, US-024, US-025, US-026, US-027 | US-015 | US-018, US-029 |
-| US-033 | Revisão das condutas | Must | 3 | US-019, US-032 | — | — |
-| US-034 | Decisão de dispensação | Must | 3 | US-033 | — | — |
-| US-036 | Comunicações e encaminhamentos | Should | 3 | US-033 | — | — |
-| US-038 | Carta ao profissional | Must | 3 | US-033 | — | US-036 |
-| US-039 | Orientações personalizadas | Must | 3 | US-009, US-023, US-027, US-033 | — | US-030 |
-| US-035 | Quantidade e cobertura | Must | 3 | US-012, US-034 | — | — |
-| US-037 | Evolução para prontuário | Must | 3 | US-034, US-035 | — | US-029, US-036, US-043 |
-| US-042 | Aprovação e exportação | Must | 3 | US-037, US-038, US-039, US-040, US-041 | — | — |
-| US-028 | Registro de TDO | Should | 4 | US-005, US-006 | — | US-027 |
-| US-029 | Acompanhamento longitudinal | Must | 4 | US-010, US-023, US-026, US-027 | — | US-028 |
-| US-043 | Desfecho do tratamento | Must | 4 | US-026, US-027, US-029, US-046 | — | US-028, US-042 |
-| US-030 | Programação dos retornos | Should | 4 | US-006, US-035 | — | — |
-| US-044 | Consulta clínica com fontes | Should | 5 | US-045, US-046 | — | — |
-| US-031 | Projeto Terapêutico Singular | Could | 5 | US-009 | — | US-029, US-036 |
-| US-015 | Regime pediátrico encurtado | Must | 5 | US-006, US-007, US-010, US-046 | — | — |
+| US-045 | Versões de regras e fontes | Must | 3 | US-001 | — | — |
+| US-046 | Precedência de fontes | Must | 3 | US-045 | — | — |
+| US-019 | Limites de atuação profissional | Must | 3 | US-002, US-046 | — | — |
+| US-021 | Aprovação das interações | Must | 4 | US-045, US-046 | — | — |
+| US-010 | Exames opcionais | Must | 6 | US-006 | — | — |
+| US-011 | HIV e notificação | Should | 6 | US-006 | — | US-010 |
+| US-013 | Adequação do esquema | Must | 4 | US-006, US-012, US-046 | — | US-015 |
+| US-014 | Dose e apresentação | Must | 4 | US-006, US-012, US-046 | — | — |
+| US-016 | Formas especiais e encaminhamento | Must | 7 | US-006, US-007, US-046 | — | US-026, US-027 |
+| US-020 | Verificação de interações | Must | 4 | US-008, US-012, US-021 | — | — |
+| US-023 | Reações adversas | Must | 5 | US-007, US-012, US-046 | — | — |
+| US-025 | Alergias e fatores de risco | Must | 7 | US-007, US-008, US-012, US-046 | — | — |
+| US-041 | Transmissão e contatos | Must | 9 | US-006, US-046 | — | — |
+| US-017 | Avaliação hepática e renal | Must | 6 | US-007, US-010, US-012, US-046 | — | — |
+| US-022 | Destaque de interações relevantes | Must | 5 | US-020 | — | — |
+| US-040 | Agenda de medicamentos | Must | 10 | US-008, US-012, US-020 | — | — |
+| US-024 | Toxicidade hepática e renal | Must | 6 | US-017, US-023 | — | — |
+| US-018 | Acesso e duplicidade terapêutica | Should | 10 | US-008, US-012 | — | — |
+| US-027 | Adesão e interrupções | Must | 7 | US-006, US-012, US-046 | — | US-009, US-028 |
+| US-026 | Avaliação da resposta | Must | 7 | US-006, US-010, US-046 | — | US-029 |
+| US-032 | Resumo dos PRMs | Must | 8 | US-013, US-014, US-016, US-017, US-019, US-020, US-022, US-023, US-024, US-025, US-026, US-027 | US-015 | US-018, US-029 |
+| US-033 | Revisão das condutas | Must | 8 | US-019, US-032 | — | — |
+| US-034 | Decisão de dispensação | Must | 8 | US-033 | — | — |
+| US-036 | Comunicações e encaminhamentos | Should | 10 | US-033 | — | — |
+| US-038 | Carta ao profissional | Must | 9 | US-033 | — | US-036 |
+| US-039 | Orientações personalizadas | Must | 9 | US-009, US-023, US-027, US-033 | — | US-030 |
+| US-035 | Quantidade e cobertura | Must | 8 | US-012, US-034 | — | — |
+| US-037 | Evolução para prontuário | Must | 9 | US-034, US-035 | — | US-029, US-036, US-043 |
+| US-042 | Aprovação e exportação | Must | 10 | US-037, US-038, US-039, US-040, US-041 | — | — |
+| US-028 | Registro de TDO | Should | 12 | US-005, US-006 | — | US-027 |
+| US-029 | Acompanhamento longitudinal | Must | 11 | US-010, US-023, US-026, US-027 | — | US-028 |
+| US-043 | Desfecho do tratamento | Must | 12 | US-026, US-027, US-029, US-046 | — | US-028, US-042 |
+| US-030 | Programação dos retornos | Should | 12 | US-006, US-035 | — | — |
+| US-044 | Consulta clínica com fontes | Should | 3 | US-045, US-046 | — | — |
+| US-031 | Projeto Terapêutico Singular | Could | 13 | US-009 | — | US-029, US-036 |
+| US-015 | Regime pediátrico encurtado | Must | 12 | US-006, US-007, US-010, US-046 | — | — |
 
 ## Justificativas das dependências
 
@@ -157,15 +115,15 @@ IDs nas colunas de predecessoras são US-xxx. Nível topológico é somente a di
 - **US-034 — Decisão de dispensação:** Registra decisão e justificativa após revisão das avaliações e condutas.
 - **US-035 — Quantidade e cobertura:** Calcula cobertura a partir da posologia e da decisão de dispensar.
 - **US-036 — Comunicações e encaminhamentos:** Relaciona comunicação e resolução a PRM/conduta. Não exige carta gerada para registrar contato manual.
-- **US-037 — Evolução para prontuário:** A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; uma fatia documental manual pode ser antecipada na entrega 1.
+- **US-037 — Evolução para prontuário:** A versão integral incorpora avaliação, decisão, quantidade quando houve dispensação e retorno; a introdução está na semana 9.
 - **US-038 — Carta ao profissional:** Gera carta a partir do achado/conduta confirmada; pode ser desenvolvida em paralelo ao registro de comunicações.
 - **US-039 — Orientações personalizadas:** Usa esquema, riscos e barreiras já disponíveis e a decisão de conduta; data de retorno pode ser informada manualmente até US-030.
 - **US-040 — Agenda de medicamentos:** Usa posologia, concomitantes e interações para apresentar horários e separações pertinentes.
 - **US-041 — Transmissão e contatos:** Seleciona conteúdo aprovado conforme tipo de TB e situação do tratamento.
-- **US-042 — Aprovação e exportação:** A versão integral revisa todos os tipos de documentos disponíveis; uma fatia limitada à evolução pode ser antecipada na entrega 1.
+- **US-042 — Aprovação e exportação:** A versão integral revisa os tipos de documentos disponíveis; a introdução está na semana 10.
 - **US-043 — Desfecho do tratamento:** Usa evolução, doses e regras de desfecho; ausência de exames não comprova cura nem bloqueia o registro do atendimento.
 - **US-044 — Consulta clínica com fontes:** Consulta apenas fontes governadas, com incerteza explícita e separação das regras decisórias.
-- **US-045 — Versões de regras e fontes:** Publicação e revisão precisam de perfil autorizado; registrar fonte de modelos documentais já na entrega 1.
+- **US-045 — Versões de regras e fontes:** Publicação e revisão precisam de perfil autorizado; registrar fonte de modelos documentais desde a primeira fatia.
 - **US-046 — Precedência de fontes:** Resolve conflitos entre fontes versionadas antes de habilitar as regras clínicas afetadas.
 - **US-047 — Privacidade e proteção de dados:** Capacidade transversal: decisões institucionais e controles mínimos desde o primeiro fluxo; ampliar por finalidade e integração.
 - **US-048 — Auditoria do atendimento:** Infraestrutura de eventos começa com autenticação; instrumentação clínica e versões são ampliadas em cada entrega.
@@ -183,7 +141,7 @@ Proposta de Meta do Produto: apoiar o farmacêutico a registrar, revisar e docum
 
 1. O Product Owner confirma o público da primeira liberação e ordena o Product Backlog por valor observado, riscos e dependências. Atrasar US-015 só é aceitável se o regime pediátrico encurtado estiver fora do escopo inicial acordado; Must continua Must no escopo alvo.
 2. No refinamento, dividir histórias grandes em fatias verticais com critérios BDD verificáveis. US-032/US-037/US-042 e histórias transversais não cabem automaticamente em uma sprint só.
-3. Na Sprint Planning, selecionar uma Meta da Sprint e trabalho compatível com a capacidade real. O grupo de entrega não define duração nem compromisso de sprint. Não contar pais e suas fatias duas vezes nas estimativas.
+3. Na Sprint Planning, selecionar uma Meta da Sprint e trabalho compatível com a capacidade real. A semana de introdução não define esforço nem compromisso de sprint. Não contar pais e suas fatias duas vezes nas estimativas.
 4. Na Sprint Review, demonstrar atendimento funcionando com farmacêutico/cliente, inspecionar feedback e reordenar o backlog. Revisão não substitui homologação institucional ou validação clínica. Na retrospectiva, ajustar práticas da equipe.
 5. Aplicar XP: exemplos clínicos/BDD discutidos com farmacêuticos; TDD para regras e transições críticas; testes de integração de persistência e exportação; integração contínua; refatoração protegida por testes; programação em pares ou revisão de código nas regras de maior risco.
 6. Definição de Pronto por fatia: critérios aprovados passam, alterações recalculam/inutilizam resultados dependentes, estado sem exame é testado, acesso e auditoria funcionam, fonte/versão é rastreável quando houver regra clínica, interface móvel e teclado são utilizáveis, exportação reflete somente dados e decisões confirmadas. Controles e validação correspondem ao escopo efetivamente liberado.

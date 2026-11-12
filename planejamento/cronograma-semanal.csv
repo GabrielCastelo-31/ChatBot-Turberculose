@@ -1,0 +1,50 @@
+﻿Semana;Início;Deadline;Ordem;HU;Capacidade;Dependências integrais;Pendências para aceite integral
+1;2026-11-13;2026-11-20;1;US-002;Início do atendimento;US-001,US-048;US-001,US-048
+1;2026-11-13;2026-11-20;2;US-005;Dados mínimos do paciente;US-002;
+1;2026-11-13;2026-11-20;3;US-003;Checklist de documentos;US-002;
+1;2026-11-13;2026-11-20;4;US-012;Revisão da prescrição;US-003,US-005;
+2;2026-11-23;2026-11-27;1;US-006;Diagnóstico e fase;US-005;
+2;2026-11-23;2026-11-27;2;US-008;Medicamentos concomitantes;US-005;
+2;2026-11-23;2026-11-27;3;US-004;Correção de respostas;US-002,US-048;US-048
+2;2026-11-23;2026-11-27;4;US-001;Acesso profissional;US-047;US-047
+3;2026-11-30;2026-12-04;1;US-045;Versões de regras e fontes;US-001;
+3;2026-11-30;2026-12-04;2;US-046;Precedência de fontes;US-045;
+3;2026-11-30;2026-12-04;3;US-044;Consulta clínica com fontes;US-045,US-046;
+3;2026-11-30;2026-12-04;4;US-019;Limites de atuação profissional;US-002,US-046;
+4;2026-12-07;2026-12-11;1;US-013;Adequação do esquema;US-006,US-012,US-046;
+4;2026-12-07;2026-12-11;2;US-014;Dose e apresentação;US-006,US-012,US-046;
+4;2026-12-07;2026-12-11;3;US-021;Aprovação das interações;US-045,US-046;
+4;2026-12-07;2026-12-11;4;US-020;Verificação de interações;US-008,US-012,US-021;
+5;2026-12-14;2026-12-18;1;US-007;Condições especiais;US-005;
+5;2026-12-14;2026-12-18;2;US-023;Reações adversas;US-007,US-012,US-046;
+5;2026-12-14;2026-12-18;3;US-022;Destaque de interações relevantes;US-020;
+5;2026-12-14;2026-12-18;4;US-009;Barreiras de adesão;US-005;
+6;2026-12-21;2026-12-25;1;US-010;Exames opcionais;US-006;
+6;2026-12-21;2026-12-25;2;US-017;Avaliação hepática e renal;US-007,US-010,US-012,US-046;
+6;2026-12-21;2026-12-25;3;US-024;Toxicidade hepática e renal;US-017,US-023;
+6;2026-12-21;2026-12-25;4;US-011;HIV e notificação;US-006;
+7;2026-12-28;2027-01-01;1;US-025;Alergias e fatores de risco;US-007,US-008,US-012,US-046;
+7;2026-12-28;2027-01-01;2;US-016;Formas especiais e encaminhamento;US-006,US-007,US-046;
+7;2026-12-28;2027-01-01;3;US-026;Avaliação da resposta;US-006,US-010,US-046;
+7;2026-12-28;2027-01-01;4;US-027;Adesão e interrupções;US-006,US-012,US-046;
+8;2027-01-04;2027-01-08;1;US-032;Resumo dos PRMs;US-013,US-014,US-016,US-017,US-019,US-020,US-022,US-023,US-024,US-025,US-026,US-027;
+8;2027-01-04;2027-01-08;2;US-033;Revisão das condutas;US-019,US-032;
+8;2027-01-04;2027-01-08;3;US-034;Decisão de dispensação;US-033;
+8;2027-01-04;2027-01-08;4;US-035;Quantidade e cobertura;US-012,US-034;
+9;2027-01-11;2027-01-15;1;US-041;Transmissão e contatos;US-006,US-046;
+9;2027-01-11;2027-01-15;2;US-037;Evolução para prontuário;US-034,US-035;
+9;2027-01-11;2027-01-15;3;US-038;Carta ao profissional;US-033;
+9;2027-01-11;2027-01-15;4;US-039;Orientações personalizadas;US-009,US-023,US-027,US-033;
+10;2027-01-18;2027-01-22;1;US-040;Agenda de medicamentos;US-008,US-012,US-020;
+10;2027-01-18;2027-01-22;2;US-042;Aprovação e exportação;US-037,US-038,US-039,US-040,US-041;
+10;2027-01-18;2027-01-22;3;US-018;Acesso e duplicidade terapêutica;US-008,US-012;
+10;2027-01-18;2027-01-22;4;US-036;Comunicações e encaminhamentos;US-033;
+11;2027-01-25;2027-01-29;1;US-047;Privacidade e proteção de dados;;
+11;2027-01-25;2027-01-29;2;US-048;Auditoria do atendimento;US-001;
+11;2027-01-25;2027-01-29;3;US-049;Acessibilidade e uso móvel;;
+11;2027-01-25;2027-01-29;4;US-029;Acompanhamento longitudinal;US-010,US-023,US-026,US-027;
+12;2027-02-01;2027-02-05;1;US-030;Programação dos retornos;US-006,US-035;
+12;2027-02-01;2027-02-05;2;US-028;Registro de TDO;US-005,US-006;
+12;2027-02-01;2027-02-05;3;US-043;Desfecho do tratamento;US-026,US-027,US-029,US-046;
+12;2027-02-01;2027-02-05;4;US-015;Regime pediátrico encurtado;US-006,US-007,US-010,US-046;
+13;2027-02-08;2027-02-12;1;US-031;Projeto Terapêutico Singular;US-009;
